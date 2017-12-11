@@ -1,0 +1,16 @@
+# {{ ansible_managed }}
+CONF_DIR={{ elasticsearch['config_dir'] }}
+DATA_DIR={{ elasticsearch['data_dir'] }}
+ES_HOME={{ elasticsearch['home_dir'] }}
+ES_STARTUP_SLEEP_TIME={{ elasticsearch['startup_sleep_time'] }}
+LOG_DIR={{ elasticsearch['log_dir'] }}
+{% if elasticsearch['max_locked_memory'] is defined %}
+MAX_LOCKED_MEMORY={{ elasticsearch['max_locked_memory'] }}
+{% endif %}
+{% if elasticsearch['max_map_count'] is defined %}
+MAX_MAP_COUNT={{ elasticsearch['max_map_count'] }}
+{% endif %}
+{% if elasticsearch['max_open_files'] is defined %}
+MAX_OPEN_FILES={{ elasticsearch['max_open_files'] }}
+{% endif %}
+PID_DIR={{ elasticsearch['pid_dir'] }}

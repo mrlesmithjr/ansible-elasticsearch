@@ -1,0 +1,4 @@
+# {{ ansible_managed }}
+{% if elasticsearch_configuration is defined and elasticsearch_configuration != [] %}
+{{ elasticsearch_configuration|to_nice_yaml }}
+{% endif %}
