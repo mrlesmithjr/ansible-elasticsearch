@@ -29,13 +29,6 @@
         ansible_distribution == "Debian" and
         ansible_distribution_release == "jessie"
 
-- name: debian | Installing Java
-  apt:
-    name: openjdk-8-jre-headless
-    state: present
-  become: true
-  when: ansible_distribution == "Debian"
-
 - name: debian | Adding OpenJDK PPA
   apt_repository:
     repo: ppa:openjdk-r/ppa
@@ -48,7 +41,6 @@
     name: openjdk-8-jre-headless
     state: present
   become: true
-  when: ansible_distribution == "Ubuntu"
 
 - name: debian | Installing Elasticsearch {{ elasticsearch['version_minor_version'] }}
   apt:
