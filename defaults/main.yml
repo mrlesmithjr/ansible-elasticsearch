@@ -69,6 +69,4 @@ elasticsearch_configuration:
   # path.data: /path/to/data
   # path.logs: /path/to/logs
 
-elasticsearch_repo_key: "{{ elasticsearch_repo_url }}/GPG-KEY-elasticsearch"
-
-elasticsearch_repo_url: https://artifacts.elastic.co
+elasticsearch_repo_key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
