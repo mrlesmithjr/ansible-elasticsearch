@@ -1,14 +1,11 @@
 ---
 - name: debian | Installing Pre-Reqs
   apt:
-    name: apt-transport-https
+    name: ["apt-transport-https", "software-properties-common"]
     state: present
   become: true
   register: result
   until: result is successful
-  with_items:
-    - apt-transport-https
-    - software-properties-common
 
 - name: debian | Adding Elasticsearch Repo Key
   apt_key:
