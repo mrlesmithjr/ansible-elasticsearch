@@ -1,3 +1,4 @@
+---
 # tasks file for ansible-elasticsearch
 
 - include: set_facts.yml

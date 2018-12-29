@@ -1,17 +1,20 @@
+---
 - name: redhat | Adding Elasticsearch Repo Key
   rpm_key:
     key: "{{ elasticsearch_repo_key }}"
     state: present
   become: true
+  register: result
+  until: result is successful
 
 - name: redhat | Adding Elasticsearch Repo
   yum_repository:
-    baseurl: "{{ elasticsearch_repo_url }}/{{ elasticsearch['version_major_version'] }}/yum"
+    baseurl: "{{ elasticsearch_repo_url + '/' + elasticsearch['version_major_version'] + '/yum' }}"
     description: "Elasticsearch repository for {{ elasticsearch['version_major_version'] }} packages"
     enabled: true
     gpgcheck: true
     gpgkey: "{{ elasticsearch_repo_key }}"
-    name: "elasticsearch-{{ elasticsearch['version_major_version'] }}"
+    name: "{{ 'elasticsearch-' + elasticsearch['version_major_version'] }}"
     state: present
   become: true
 
@@ -24,9 +27,11 @@
 
 - name: redhat | Installing Elasticsearch
   yum:
-    name: "elasticsearch-{{ elasticsearch['version_minor_version'] }}"
+    name: "{{ 'elasticsearch-' + elasticsearch['version_minor_version'] }}"
     state: present
   become: true
+  register: result
+  until: result is successful
   when: ansible_distribution != "Fedora"
 
 - name: redhat | Installing Java
@@ -34,11 +39,15 @@
     name: java
     state: present
   become: true
+  register: result
+  until: result is successful
   when: ansible_distribution == "Fedora"
 
 - name: redhat | Installing Elasticsearch
   dnf:
-    name: "elasticsearch-{{ elasticsearch['version_minor_version'] }}"
+    name: "{{ 'elasticsearch-' + elasticsearch['version_minor_version'] }}"
     state: present
   become: true
+  register: result
+  until: result is successful
   when: ansible_distribution == "Fedora"

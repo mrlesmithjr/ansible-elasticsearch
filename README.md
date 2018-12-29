@@ -1,24 +1,15 @@
 # ansible-elasticsearch
 
-<!-- TOC -->
-
-- [ansible-elasticsearch](#ansible-elasticsearch)
-  - [Requirements](#requirements)
-  - [Role Variables](#role-variables)
-  - [Dependencies](#dependencies)
-  - [Example Playbook](#example-playbook)
-  - [Molecule Testing](#molecule-testing)
-  - [License](#license)
-  - [Author Information](#author-information)
-
-<!-- /TOC -->
-
 An [Ansible](https://www.ansible.com) role to install/configure [Elasticsearch](https://www.elastic.co/products/elasticsearch)
 
 > NOTE: This role has been completely rewritten and replaces my original
 > `ansible-elasticsearch` role which has been renamed to [ansible-elasticsearch-old](https://github.com/mrlesmithjr/ansible-elasticsearch-old.git).
 > I decided to rewrite this role as the original had a lot of residuals from years
 > of different usages. The original will remain for historical purposes.
+
+## Build Status
+
+[![Build Status](https://travis-ci.org/mrlesmithjr/ansible-elasticsearch.svg?branch=master)](https://travis-ci.org/mrlesmithjr/ansible-elasticsearch)
 
 ## Requirements
 

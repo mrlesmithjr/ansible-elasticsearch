@@ -1,10 +1,11 @@
-- name: config | Configuring {{ elasticsearch['config_dir'] }}/elasticsearch.yml
+---
+- name: config | Configuring {{ elasticsearch['config_dir'] + '/elasticsearch.yml' }}
   template:
     src: etc/elasticsearch/elasticsearch.yml.j2
-    dest: "{{ elasticsearch['config_dir'] }}/elasticsearch.yml"
+    dest: "{{ elasticsearch['config_dir'] + '/elasticsearch.yml' }}"
     owner: root
     group: elasticsearch
-    mode: "u=rw,g=rw,o="
+    mode: u=rw,g=rw,o=
   become: true
   notify: restart elasticsearch
 
@@ -14,7 +15,7 @@
     dest: /etc/default/elasticsearch
     owner: root
     group: root
-    mode: "u=rw,g=rw,o="
+    mode: u=rw,g=rw,o=
   become: true
   notify: restart elasticsearch
   when: ansible_os_family == "Debian"
