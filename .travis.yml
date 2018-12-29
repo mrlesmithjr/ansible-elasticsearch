@@ -12,15 +12,15 @@ env:
   - distribution: centos
     init: /usr/lib/systemd/systemd
     version: 7
-  - distribution: fedora
-    init: /usr/lib/systemd/systemd
-    version: 29
-  - distribution: fedora
-    init: /usr/lib/systemd/systemd
-    version: 28
-  - distribution: fedora
-    init: /usr/lib/systemd/systemd
-    version: 27
+  # - distribution: fedora
+  #   init: /usr/lib/systemd/systemd
+  #   version: 29
+  # - distribution: fedora
+  #   init: /usr/lib/systemd/systemd
+  #   version: 28
+  # - distribution: fedora
+  #   init: /usr/lib/systemd/systemd
+  #   version: 27
   - distribution: fedora
     init: /usr/lib/systemd/systemd
     version: 26
@@ -42,9 +42,9 @@ env:
   - distribution: debian
     init: /lib/systemd/systemd
     version: stretch
-  - distribution: debian
-    init: /lib/systemd/systemd
-    version: jessie
+  # - distribution: debian
+  #   init: /lib/systemd/systemd
+  #   version: jessie
 
 before_install:
   - "sudo pip install yamllint"
