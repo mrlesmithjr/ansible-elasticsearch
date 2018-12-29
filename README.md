@@ -1,8 +1,10 @@
-# ansible-elasticsearch
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-<!-- TOC -->
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [ansible-elasticsearch](#ansible-elasticsearch)
+  - [Build Status](#build-status)
   - [Requirements](#requirements)
   - [Role Variables](#role-variables)
   - [Dependencies](#dependencies)
@@ -11,7 +13,9 @@
   - [License](#license)
   - [Author Information](#author-information)
 
-<!-- /TOC -->
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# ansible-elasticsearch
 
 An [Ansible](https://www.ansible.com) role to install/configure [Elasticsearch](https://www.elastic.co/products/elasticsearch)
 
@@ -19,6 +23,10 @@ An [Ansible](https://www.ansible.com) role to install/configure [Elasticsearch](
 > `ansible-elasticsearch` role which has been renamed to [ansible-elasticsearch-old](https://github.com/mrlesmithjr/ansible-elasticsearch-old.git).
 > I decided to rewrite this role as the original had a lot of residuals from years
 > of different usages. The original will remain for historical purposes.
+
+## Build Status
+
+[![Build Status](https://travis-ci.org/mrlesmithjr/ansible-elasticsearch.svg?branch=master)](https://travis-ci.org/mrlesmithjr/ansible-elasticsearch)
 
 ## Requirements
 

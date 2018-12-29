@@ -1,17 +1,19 @@
+---
 - name: debian | Installing Pre-Reqs
   apt:
-    name: apt-transport-https
+    name: ["apt-transport-https", "software-properties-common"]
     state: present
   become: true
-  with_items:
-    - apt-transport-https
-    - software-properties-common
+  register: result
+  until: result is successful
 
 - name: debian | Adding Elasticsearch Repo Key
   apt_key:
     url: "{{ elasticsearch_repo_key }}"
     state: present
   become: true
+  register: result
+  until: result is successful
 
 - name: debian | Adding Elasticsearch Repo
   apt_repository:
@@ -40,9 +42,13 @@
     name: openjdk-8-jre-headless
     state: present
   become: true
+  register: result
+  until: result is successful
 
 - name: debian | Installing Elasticsearch {{ elasticsearch['version_minor_version'] }}
   apt:
-    name: "elasticsearch={{ elasticsearch['version_minor_version'] }}"
+    name: "{{ 'elasticsearch=' + elasticsearch['version_minor_version'] }}"
     state: present
   become: true
+  register: result
+  until: result is successful
