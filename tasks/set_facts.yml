@@ -10,3 +10,9 @@
     elasticsearch_repo_url: https://artifacts.elastic.co/packages
     elasticsearch_debian_repo: "{{ 'deb https://artifacts.elastic.co/packages/' + elasticsearch['version_major_version'] + '/apt stable main' }}"
   when: elasticsearch['version_major_version'] == "5.x"
+
+- name: set_facts | Setting Facts (ES 6.x)
+  set_fact:
+    elasticsearch_repo_url: https://artifacts.elastic.co/packages
+    elasticsearch_debian_repo: "{{ 'deb https://artifacts.elastic.co/packages/' + elasticsearch['version_major_version'] + '/apt stable main' }}"
+  when: elasticsearch['version_major_version'] == "6.x"
