@@ -27,7 +27,7 @@
 
 - name: redhat | Installing Elasticsearch
   yum:
-    name: "{{ 'elasticsearch-' + elasticsearch['version_minor_version'] }}"
+    name: "{{ 'elasticsearch-' + elasticsearch['version_minor_version']|string }}"
     state: present
   become: true
   register: result
