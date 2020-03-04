@@ -1,11 +1,9 @@
 ---
 galaxy_info:
   author: Larry Smith Jr.
-  description: An [Ansible](https://www.ansible.com) role to install/configure [Elasticsearch](https://www.elastic.co/products/elasticsearch)
-
-  license: license (MIT)
-
-  min_ansible_version: 1.2
+  description: Ansible role to install/configure Elasticsearch
+  license: MIT
+  min_ansible_version: 2.8
 
   platforms:
     - name: Debian
@@ -33,4 +31,5 @@ galaxy_info:
   galaxy_tags:
     - database
     - nosql
+
 dependencies: []
