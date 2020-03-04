@@ -1,7 +1,9 @@
 ---
 - name: debian | Installing Pre-Reqs
   apt:
-    name: ["apt-transport-https", "software-properties-common"]
+    name:
+      - apt-transport-https
+      - software-properties-common
     state: present
   become: true
   register: result
@@ -26,9 +28,9 @@
     repo: deb http://http.debian.net/debian jessie-backports main
     state: present
   become: true
-  when: >
-    ansible_distribution == "Debian" and
-    ansible_distribution_release == "jessie"
+  when:
+    - ansible_distribution == "Debian"
+    - ansible_distribution_release == "jessie"
 
 - name: debian | Adding OpenJDK PPA
   apt_repository:
@@ -39,7 +41,7 @@
 
 - name: debian | Installing Java
   apt:
-    name: openjdk-8-jre-headless
+    name: "{{ elasticsearch_java_package }}"
     state: present
   become: true
   register: result
