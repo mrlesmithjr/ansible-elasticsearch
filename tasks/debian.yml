@@ -1,7 +1,9 @@
 ---
 - name: debian | Installing Pre-Reqs
   apt:
-    name: ["apt-transport-https", "software-properties-common"]
+    name:
+      - apt-transport-https
+      - software-properties-common
     state: present
   become: true
   register: result
