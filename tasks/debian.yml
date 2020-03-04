@@ -39,7 +39,7 @@
 
 - name: debian | Installing Java
   apt:
-    name: openjdk-8-jre-headless
+    name: "{{ elasticsearch_java_package }}"
     state: present
   become: true
   register: result

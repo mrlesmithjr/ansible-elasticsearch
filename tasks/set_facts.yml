@@ -16,3 +16,23 @@
     elasticsearch_repo_url: https://artifacts.elastic.co/packages
     elasticsearch_debian_repo: "{{ 'deb https://artifacts.elastic.co/packages/' + elasticsearch['version_major_version'] + '/apt stable main' }}"
   when: elasticsearch['version_major_version'] == "6.x"
+
+- name: set_facts | Setting Debian Facts
+  set_fact:
+    elasticsearch_java_package: openjdk-8-jre-headless
+  when:
+    - ansible_distribution == "Debian"
+    - ansible_distribution_version is version('10', '<')
+
+- name: set_facts | Setting Debian Facts
+  set_fact:
+    elasticsearch_java_package: openjdk-11-jre-headless
+  when:
+    - ansible_distribution == "Debian"
+    - ansible_distribution_version is version('10', '>=')
+
+- name: set_facts | Setting Ubuntu Facts
+  set_fact:
+    elasticsearch_java_package: openjdk-8-jre-headless
+  when:
+    - ansible_distribution == "Ubuntu"
