@@ -1,3 +1,41 @@
+commit a5e546322d4ba362269abaf2adef91d68cbad50c
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Thu Jun 18 19:13:28 2020 -0400
+
+    Updated Python reqs
+
+commit c6d23efe1f10b92a5e82f3049380dff523effa90
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Wed Mar 4 00:43:49 2020 -0500
+
+    Cleaned up Debian pre-reqs
+    
+    Cleaned up formatting of name
+
+commit 8a0a7318d1a0b9ed732156c108a7fc54c7c617c9
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Wed Mar 4 00:42:53 2020 -0500
+
+    Added set_fact to define Java version
+    
+    This is for Debian/Ubuntu only for now.
+
+commit b713e369ad54da6db01dfaf0c2c0ebbee0032a5b
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Wed Mar 4 00:26:59 2020 -0500
+
+    Cleaned up formatting
+    
+    Conditionals, etc. were updated to be more consistent format
+
+commit 226b9f519d908d105f8419cb107527f5f687f718
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Wed Mar 4 00:22:55 2020 -0500
+
+    Added new Molecule tests, etc. from new structure
+    
+    These new files align to cookiecutter template
+
 commit 93ed37118bedcb0428e0fdd12b66d97678a9133a
 Author: Larry Smith Jr <mrlesmithjr@gmail.com>
 Date:   Wed Mar 4 00:22:20 2020 -0500
