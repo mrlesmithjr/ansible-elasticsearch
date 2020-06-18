@@ -1,3 +1,11 @@
+commit 9916446a4111a2fba6d0bdda03ff8f338da807cf
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Thu Jun 18 19:24:02 2020 -0400
+
+    Updated CI testing
+    
+    Needed to add new Python requirements for testing and process
+
 commit 6f4b5489facf26d01fb1502574ebaefc54906919
 Author: Larry Smith Jr <mrlesmithjr@gmail.com>
 Date:   Thu Jun 18 19:17:56 2020 -0400
