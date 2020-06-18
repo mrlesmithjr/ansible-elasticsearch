@@ -1,3 +1,11 @@
+commit 6f4b5489facf26d01fb1502574ebaefc54906919
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Thu Jun 18 19:17:56 2020 -0400
+
+    Added gnupg Debian pre-reqs
+    
+    gpg not found
+
 commit a5e546322d4ba362269abaf2adef91d68cbad50c
 Author: Larry Smith Jr <mrlesmithjr@gmail.com>
 Date:   Thu Jun 18 19:13:28 2020 -0400
