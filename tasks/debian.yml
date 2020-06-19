@@ -10,13 +10,16 @@
   register: result
   until: result is successful
 
-- name: debian | Adding Elasticsearch Repo Key
+- name: debian | Copying Elasticsearch GPG Key
+  copy:
+    src: GPG-KEY-elasticsearch
+    dest: /tmp/GPG-KEY-elasticsearch
+
+- name: debian | Adding Elasticsearch GPG Key
   apt_key:
-    url: "{{ elasticsearch.repo_key }}"
+    file: /tmp/GPG-KEY-elasticsearch
     state: present
   become: true
-  register: result
-  until: result is successful
 
 - name: debian | Adding Elasticsearch Repo
   apt_repository:
