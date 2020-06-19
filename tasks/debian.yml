@@ -12,7 +12,7 @@
 
 - name: debian | Adding Elasticsearch Repo Key
   apt_key:
-    url: "{{ elasticsearch_repo_key }}"
+    url: "{{ elasticsearch.repo_key }}"
     state: present
   become: true
   register: result
@@ -20,7 +20,7 @@
 
 - name: debian | Adding Elasticsearch Repo
   apt_repository:
-    repo: "{{ elasticsearch_debian_repo }}"
+    repo: "{{ 'deb '+elasticsearch.repo_url+'/'+elasticsearch.version_major_version+'/apt stable main' }}"
     state: present
   become: true
 

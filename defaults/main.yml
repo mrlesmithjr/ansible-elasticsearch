@@ -23,11 +23,13 @@ elasticsearch:
   # max_map_count: 262144
   # max_open_files: 65536
   pid_dir: /var/run/elasticsearch
+  repo_key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+  repo_url: https://artifacts.elastic.co/packages
   startup_sleep_time: 5
   # Defines Elasticsearch Major release (1.7|2.x|5.x|6.x)
-  version_major_version: 5.x
+  version_major_version: 7.x
   # Defines Elasticsearch Minor release
-  version_minor_version: 5.6.14
+  version_minor_version: 7.8.0
 
 # Defines configuration options for elasticsearch.yml
 elasticsearch_configuration:
@@ -77,5 +79,3 @@ elasticsearch_configuration:
 
 # Defines multiplier for determining the amount of memory to allocate to ES
 elasticsearch_heap_size_multiplier: 0.5
-
-elasticsearch_repo_key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
