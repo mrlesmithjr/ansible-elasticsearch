@@ -74,8 +74,8 @@ elasticsearch_configuration:
   # node.master: true
 
   node.name: "{{ ansible_hostname }}"
-  # path.data: /path/to/data
-  # path.logs: /path/to/logs
+  path.data: "{{ elasticsearch.data_dir }}"
+  path.logs: "{{ elasticsearch.log_dir }}"
 
 # Defines multiplier for determining the amount of memory to allocate to ES
 elasticsearch_heap_size_multiplier: 0.5
