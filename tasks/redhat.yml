@@ -1,7 +1,7 @@
 ---
 - name: redhat | Adding Elasticsearch Repo Key
   rpm_key:
-    key: "{{ elasticsearch_repo_key }}"
+    key: "{{ elasticsearch.repo_key }}"
     state: present
   become: true
   register: result
@@ -9,12 +9,12 @@
 
 - name: redhat | Adding Elasticsearch Repo
   yum_repository:
-    baseurl: "{{ elasticsearch_repo_url + '/' + elasticsearch['version_major_version'] + '/yum' }}"
-    description: "Elasticsearch repository for {{ elasticsearch['version_major_version'] }} packages"
+    baseurl: "{{ elasticsearch.repo_url+'/'+elasticsearch.version_major_version+'/yum' }}"
+    description: "Elasticsearch repository for {{ elasticsearch.version_major_version }} packages"
     enabled: true
     gpgcheck: true
-    gpgkey: "{{ elasticsearch_repo_key }}"
-    name: "{{ 'elasticsearch-' + elasticsearch['version_major_version'] }}"
+    gpgkey: "{{ elasticsearch.repo_key }}"
+    name: "{{ 'elasticsearch-'+elasticsearch.version_major_version }}"
     state: present
   become: true
 
