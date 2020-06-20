@@ -1,3 +1,28 @@
+commit a8d2e7620d8a4275d02b77fbcd69dfd160191559
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Fri Jun 19 11:12:37 2020 -0400
+
+    Bugfix: Immediate fix for file perms and config options
+    
+    This fixes template permissions for files and defines applicable data
+    and log directories.
+
+commit ac443553bfba52908e0545b7bbdcdd2fc9a20afb
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Fri Jun 19 09:43:22 2020 -0400
+
+    Fixing BS GPG Issue
+    
+    https://discuss.elastic.co/t/official-apt-repository-451-unavailable-for-legal-reasons/232494
+
+commit 686268563572d47ac280bb39d1c7e71ac1b58f6c
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Thu Jun 18 21:15:11 2020 -0400
+
+    Fixed repo url and keys for all distros
+    
+    Variables were messed up after cleaning up set_facts previously.
+
 commit 04d4cc2078f0a5dda55b26d6b7a97ba42c9be1e6
 Author: Larry Smith Jr <mrlesmithjr@gmail.com>
 Date:   Thu Jun 18 20:44:44 2020 -0400
