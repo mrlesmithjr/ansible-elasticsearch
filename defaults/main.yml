@@ -2,9 +2,6 @@
 # defaults file for ansible-elasticsearch
 
 elasticsearch:
-  # # Defines the Ansible group which contains the Elasticsearch nodes for cluster
-  # cluster_group: es_cluster
-
   # Defines if elasticsearch should be configured
   config: false
 
@@ -17,7 +14,7 @@ elasticsearch:
   heap_size: "{{ (ansible_memtotal_mb * elasticsearch_heap_size_multiplier)|round|int }}m"
 
   home_dir: /usr/share/elasticsearch
-  # listen_interface: enp0s8
+  listen_interface: "{{ ansible_default_ipv4.interface }}"
   log_dir: /var/log/elasticsearch
   # max_locked_memory: unlimited
   # max_map_count: 262144
@@ -26,56 +23,63 @@ elasticsearch:
   repo_key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
   repo_url: https://artifacts.elastic.co/packages
   startup_sleep_time: 5
-  # Defines Elasticsearch Major release (1.7|2.x|5.x|6.x)
+  # Defines Elasticsearch Major release (1.7|2.x|5.x|6.x|7.x)
   version_major_version: 7.x
   # Defines Elasticsearch Minor release
   version_minor_version: 7.8.0
 
 # Defines configuration options for elasticsearch.yml
 elasticsearch_configuration:
-  # action.destructive_requires_name: true
-  # bootstrap.memory_lock: true
+  # A node can only join a cluster when it shares its cluster.name with all the
+  # other nodes in the cluster. The default name is elasticsearch, but you
+  # should change it to an appropriate name which describes the purpose of the
+  # cluster.
+  cluster:
+    name: elasticsearch
 
-  # # Defines cluster name
-  # cluster.name: my-application
+  # Provides a list of the addresses of the master-eligible nodes in the cluster
+  discovery:
+    seed_hosts:
+      - localhost
 
-  # # To avoid a split brain, this setting should be set to a quorum of master- eligible nodes
-  # discovery.zen.minimum_master_nodes: "{{ (groups[elasticsearch['cluster_group']]|count /2)|round(0, 'ceil')|int }}"
+  http:
+    port: 9200
 
-  # # provide a seed list of other nodes in the cluster that are likely to be live and contactable
-  # discovery.zen.ping.unicast.hosts: "{{ groups[elasticsearch['cluster_group']] }}"
+  network:
+    # In order to communicate and to form a cluster with nodes on other servers,
+    # your node will need to bind to a non-loopback address
+    host: "{{ hostvars[inventory_hostname]['ansible_' + elasticsearch['listen_interface']]['ipv4']['address'] }}"
 
-  # gateway.recover_after_nodes: 3
-  # http.port: 9200
+    # Define a specific interface to bind elasticsearch on for clustering
+    # Usually not required
+    # Vagrant instances requires this...
+    # examples....(_eth1_|_enp0s8_)
+    publish_host: "{{ '_' + elasticsearch['listen_interface'] + '_' }}"
 
-  # # In order to communicate and to form a cluster with nodes on other servers,
-  # # your node will need to bind to a non-loopback address
-  # network.host: "{{ hostvars[inventory_hostname]['ansible_' + elasticsearch['listen_interface']]['ipv4']['address'] }}"
+  node:
+    # A node that has node.master set to true (default), which makes it
+    # eligible to be elected as the master node, which controls the cluster.
+    master: true
 
-  # # Define a specific interface to bind elasticsearch on for clustering
-  # # Usually not required
-  # # Vagrant instances requires this...
-  # # examples....(_eth1_|_enp0s8_)
-  # network.publish_host: "{{ '_' + elasticsearch['listen_interface'] + '_' }}"
+    # A node that has node.data set to true (default). Data nodes hold data and
+    # perform data related operations such as CRUD, search, and aggregations.
+    data: true
 
-  # # Data nodes hold data and perform data related operations such as CRUD,
-  # # search, and aggregations.
-  # node.data: true
+    # A node that has node.ingest set to true (default). Ingest nodes are able
+    # to apply an ingest pipeline to a document in order to transform and
+    # enrich the document before indexing. With a heavy ingest load, it makes
+    # sense to use dedicated ingest nodes and to mark the master and data nodes
+    # as node.ingest: false.
+    ingest: true
 
-  # # A node that has node.ingest set to true (default). Ingest nodes are able
-  # # to apply an ingest pipeline to a document in order to transform and enrich
-  # # the document before indexing. With a heavy ingest load, it makes sense to
-  # # use dedicated ingest nodes and to mark the master and data nodes as
-  # # node.ingest:                  false.
-  # node.ingest: true
+    # Elasticsearch uses node.name as a human readable identifier for a
+    # particular instance of Elasticsearch so it is included in the response
+    # of many APIs.
+    name: "{{ ansible_hostname }}"
 
-  # # A node that has node.master set to true (default), which makes it eligible
-  # # to be elected as the master node, which controls the cluster.
-  # node.master: true
-
-  node.name: "{{ ansible_hostname }}"
-  path.data: "{{ elasticsearch.data_dir }}"
-  path.logs: "{{ elasticsearch.log_dir }}"
+  path:
+    data: "{{ elasticsearch.data_dir }}"
+    logs: "{{ elasticsearch.log_dir }}"
 
 # Defines multiplier for determining the amount of memory to allocate to ES
 elasticsearch_heap_size_multiplier: 0.5
