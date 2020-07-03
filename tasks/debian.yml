@@ -41,6 +41,8 @@
     repo: ppa:openjdk-r/ppa
     state: present
   become: true
+  register: result
+  until: result is successful
   when: ansible_distribution == "Ubuntu"
 
 - name: debian | Installing Java
