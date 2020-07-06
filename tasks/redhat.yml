@@ -30,7 +30,7 @@
 
 - name: redhat | Installing Elasticsearch
   yum:
-    name: "{{ 'elasticsearch-' + elasticsearch['version_minor_version']|string }}"
+    name: "{{ elasticsearch_package }}"
     state: present
   become: true
   register: result
@@ -48,7 +48,7 @@
 
 - name: redhat | Installing Elasticsearch
   dnf:
-    name: "{{ 'elasticsearch-' + elasticsearch['version_minor_version'] }}"
+    name: "{{ elasticsearch_package }}"
     state: present
   become: true
   register: result
