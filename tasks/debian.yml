@@ -55,7 +55,7 @@
 
 - name: debian | Installing Elasticsearch {{ elasticsearch['version_minor_version'] }}
   apt:
-    name: "{{ 'elasticsearch=' + elasticsearch['version_minor_version']|string }}"
+    name: "{{ elasticsearch_package }}"
     state: present
   become: true
   register: result

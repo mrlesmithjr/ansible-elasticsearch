@@ -1,3 +1,22 @@
+commit 9dac9da9d79d1654500a04019dde8baa82558cb4
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Fri Jul 3 19:49:19 2020 -0400
+
+    Added register until successful for OpenJDK PPA
+    
+    Hit this today where a single timeout failed out.
+
+commit a0000e23e816d06a49e66c9fcd8bd8081a910f8e
+Author: Larry Smith Jr <mrlesmithjr@gmail.com>
+Date:   Sat Jun 20 18:47:53 2020 -0400
+
+    Cleaned up default vars
+    
+    - After doing a bit more testing, some of the original default vars were
+      no longer valid and some were missing
+    - Changed config: true for Molecule testing to ensure that the default
+      configuration is valid
+
 commit a8d2e7620d8a4275d02b77fbcd69dfd160191559
 Author: Larry Smith Jr <mrlesmithjr@gmail.com>
 Date:   Fri Jun 19 11:12:37 2020 -0400
