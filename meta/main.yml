@@ -4,6 +4,8 @@ galaxy_info:
   description: Ansible role to install/configure Elasticsearch
   license: MIT
   min_ansible_version: 2.8
+  role_name: elasticsearch
+  namespace: mrlesmithjr
 
   platforms:
     - name: Debian

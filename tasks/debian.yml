@@ -14,6 +14,7 @@
   copy:
     src: GPG-KEY-elasticsearch
     dest: /tmp/GPG-KEY-elasticsearch
+    mode: u=rw,g=r,o=r
 
 - name: debian | Adding Elasticsearch GPG Key
   apt_key:
