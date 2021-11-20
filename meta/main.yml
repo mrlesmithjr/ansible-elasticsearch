@@ -10,26 +10,16 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
-        - jessie
-        - stretch
+        - all
     - name: EL
       versions:
-        - 6
-        - 7
+        - all
     - name: Fedora
       versions:
-        - 22
-        - 23
-        - 24
-        - 25
-        - 26
+        - all
     - name: Ubuntu
       versions:
-        - bionic
-        - trusty
-        - vivid
-        - wily
-        - xenial
+        - all
   galaxy_tags:
     - database
     - nosql

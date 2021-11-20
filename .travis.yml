@@ -6,8 +6,8 @@ services:
 before_install:
   - sudo apt-get -qq update
 env:
-  - molecule_distro=alpine313
-  - molecule_distro=alpine314
+  # - molecule_distro=alpine313
+  # - molecule_distro=alpine314
   - molecule_distro=centos7
   - molecule_distro=centos8
   # - molecule_distro=debian8
