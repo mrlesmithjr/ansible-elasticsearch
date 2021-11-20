@@ -3,6 +3,7 @@
   copy:
     src: GPG-KEY-elasticsearch
     dest: /tmp/GPG-KEY-elasticsearch
+    mode: u=rw,g=r,o=r
 
 - name: redhat | Adding Elasticsearch GPG Key
   rpm_key:
