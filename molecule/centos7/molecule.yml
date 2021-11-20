@@ -12,7 +12,7 @@ lint: |
   flake8
 platforms:
   - name: centos7
-    image: jrei/systemd-centos:7
+    image: mrlesmithjr/centos:7
     privileged: true
     command: /usr/sbin/init
     # tmpfs:
@@ -24,5 +24,6 @@ provisioner:
   name: ansible
   playbooks:
     converge: ../shared/converge.yml
+    prepare: ../shared/prepare.yml
 verifier:
   name: ansible
