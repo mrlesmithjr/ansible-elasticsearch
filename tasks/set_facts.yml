@@ -1,47 +1,47 @@
 ---
 - name: set_facts | Setting Debian Facts
-  set_fact:
+  ansible.builtin.set_fact:
     elasticsearch_java_package: openjdk-8-jre-headless
   when:
     - ansible_distribution == "Debian"
     - ansible_distribution_version is version('10', '<')
 
 - name: set_facts | Setting Debian Facts
-  set_fact:
+  ansible.builtin.set_fact:
     elasticsearch_java_package: openjdk-11-jre-headless
   when:
     - ansible_distribution == "Debian"
     - ansible_distribution_version is version('10', '>=')
 
 - name: set_facts | Setting Ubuntu Facts
-  set_fact:
+  ansible.builtin.set_fact:
     elasticsearch_java_package: openjdk-8-jre-headless
   when:
     - ansible_distribution == "Ubuntu"
 
 - name: set_facts | Setting Elasticsearch Package (Debian)
-  set_fact:
-    elasticsearch_package: "{{ 'elasticsearch=' + elasticsearch['version_minor_version']|string }}"
+  ansible.builtin.set_fact:
+    elasticsearch_package: "{{ 'elasticsearch=' + elasticsearch['version_minor_version'] | string }}"
   when:
     - ansible_os_family == "Debian"
     - ('oss' not in elasticsearch.version_major_version)
 
 - name: set_facts | Setting Elasticsearch Package (Debian)
-  set_fact:
-    elasticsearch_package: "{{ 'elasticsearch-oss=' + elasticsearch['version_minor_version']|string }}"
+  ansible.builtin.set_fact:
+    elasticsearch_package: "{{ 'elasticsearch-oss=' + elasticsearch['version_minor_version'] | string }}"
   when:
     - ansible_os_family == "Debian"
     - ('oss' in elasticsearch.version_major_version)
 
 - name: set_facts | Setting Elasticsearch Package (RedHat)
-  set_fact:
+  ansible.builtin.set_fact:
     elasticsearch_package: "{{ 'elasticsearch-' + elasticsearch['version_minor_version'] }}"
   when:
     - ansible_os_family == "RedHat"
     - ('oss' not in elasticsearch.version_major_version)
 
 - name: set_facts | Setting Elasticsearch Package (RedHat)
-  set_fact:
+  ansible.builtin.set_fact:
     elasticsearch_package: "{{ 'elasticsearch-oss-' + elasticsearch['version_minor_version'] }}"
   when:
     - ansible_os_family == "RedHat"
