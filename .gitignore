@@ -9,11 +9,7 @@
 venv/
 
 ### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+.vscode/
 *.code-workspace
 
 # Local History for Visual Studio Code
@@ -23,3 +19,6 @@ venv/
 # Ignore all local history of files
 .history
 .ionide
+
+### macOS ###
+.DS_Store
